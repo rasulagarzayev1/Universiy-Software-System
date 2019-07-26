@@ -1,0 +1,29 @@
+C:\Users\Aspire\Desktop\University Final\University Final\bin\Debug\University Final.exe.config
+C:\Users\Aspire\Desktop\University Final\University Final\bin\Debug\University Final.exe
+C:\Users\Aspire\Desktop\University Final\University Final\bin\Debug\University Final.pdb
+C:\Users\Aspire\Desktop\University Final\University Final\bin\Debug\EntityFramework.dll
+C:\Users\Aspire\Desktop\University Final\University Final\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Aspire\Desktop\University Final\University Final\bin\Debug\EntityFramework.xml
+C:\Users\Aspire\Desktop\University Final\University Final\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Aspire\Desktop\University Final\University Final\obj\Debug\University Final.csprojAssemblyReference.cache
+C:\Users\Aspire\Desktop\University Final\University Final\obj\Debug\University_Final.Form1.resources
+C:\Users\Aspire\Desktop\University Final\University Final\obj\Debug\University_Final.Properties.Resources.resources
+C:\Users\Aspire\Desktop\University Final\University Final\obj\Debug\University Final.csproj.GenerateResource.cache
+C:\Users\Aspire\Desktop\University Final\University Final\obj\Debug\University Final.csproj.CoreCompileInputs.cache
+C:\Users\Aspire\Desktop\University Final\University Final\obj\Debug\University Final.csproj.CopyComplete
+C:\Users\Aspire\Desktop\University Final\University Final\obj\Debug\University Final.exe
+C:\Users\Aspire\Desktop\University Final\University Final\obj\Debug\University Final.pdb
+C:\Users\Aspire\Desktop\University Final\University Final\obj\Debug\University_Final.AdminForm.resources
+C:\Users\Aspire\Desktop\University Final\University Final\obj\Debug\University_Final.TeacherForm.resources
+C:\Users\Aspire\Desktop\University Final\University Final\obj\Debug\University_Final.AddGroup.resources
+C:\Users\Aspire\Desktop\University Final\University Final\obj\Debug\University_Final.AddStudent.resources
+C:\Users\Aspire\Desktop\University Final\University Final\obj\Debug\University_Final.AddSubject.resources
+C:\Users\Aspire\Desktop\University Final\University Final\obj\Debug\University_Final.AddTeacher.resources
+C:\Users\Aspire\Desktop\University Final\University Final\obj\Debug\University_Final.AddClass.resources
+C:\Users\Aspire\Desktop\University Final\University Final\obj\Debug\University_Final.StudentPointForm.resources
+C:\Users\Aspire\Desktop\University Final\University Final\obj\Debug\University_Final.StudentForm.resources
+C:\Users\Aspire\Desktop\University Final\University Final\obj\Debug\University_Final.TeacherProfileSettings.resources
+C:\Users\Aspire\Desktop\University Final\University Final\obj\Debug\University_Final.StudentProfile.resources
+C:\Users\Aspire\Desktop\University Final\University Final\obj\Debug\University_Final.studentSettingsForm.resources
+C:\Users\Aspire\Desktop\University Final\University Final\obj\Debug\University_Final.AddQuestions.resources
+C:\Users\Aspire\Desktop\University Final\University Final\obj\Debug\University_Final.Exam.resources

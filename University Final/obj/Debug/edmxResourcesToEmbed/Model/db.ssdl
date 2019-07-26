@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UniversityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admins">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Identifikator" Type="int" />
+    <Property Name="Password" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="BeforeExamGrades">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DailyPoint" Type="int" />
+    <Property Name="PointDate" Type="date" />
+    <Property Name="SubjectID" Type="int" />
+    <Property Name="StudentID" Type="int" />
+  </EntityType>
+  <EntityType Name="Exams">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubjectID" Type="int" />
+    <Property Name="StudentID" Type="int" />
+    <Property Name="EnterenceGrade" Type="int" />
+    <Property Name="ExamGrade" Type="int" />
+    <Property Name="FinalGrade" Type="int" />
+  </EntityType>
+  <EntityType Name="Groups">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="Questions">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="VarianA" Type="nvarchar(max)" />
+    <Property Name="VariantB" Type="nvarchar(max)" />
+    <Property Name="VarianC" Type="nvarchar(max)" />
+    <Property Name="CorrectVariant" Type="nvarchar(max)" />
+    <Property Name="SubjectID" Type="int" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="STG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupID" Type="int" />
+    <Property Name="SubjectID" Type="int" />
+    <Property Name="TeacherID" Type="int" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Firstname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Lastname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Birthdate" Type="date" />
+    <Property Name="Password" Type="nvarchar" MaxLength="255" />
+    <Property Name="Identifikator" Type="int" />
+    <Property Name="GroupID" Type="int" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="Subjects">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="Teachers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Firstname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Lastname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Birthdate" Type="date" />
+    <Property Name="Password" Type="nvarchar" MaxLength="255" />
+    <Property Name="Identifikator" Type="int" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <Association Name="FK__BeforeExa__Stude__52593CB8">
+    <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+    <End Role="BeforeExamGrades" Type="Self.BeforeExamGrades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BeforeExamGrades">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BeforeExa__Subje__5165187F">
+    <End Role="Subjects" Type="Self.Subjects" Multiplicity="0..1" />
+    <End Role="BeforeExamGrades" Type="Self.BeforeExamGrades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BeforeExamGrades">
+        <PropertyRef Name="SubjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Exams__SubjectID__4D94879B">
+    <End Role="Subjects" Type="Self.Subjects" Multiplicity="0..1" />
+    <End Role="Exams" Type="Self.Exams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Exams">
+        <PropertyRef Name="SubjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Exams__SudentID__4E88ABD4">
+    <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+    <End Role="Exams" Type="Self.Exams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Exams">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Questions__Subje__5535A963">
+    <End Role="Subjects" Type="Self.Subjects" Multiplicity="0..1" />
+    <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Questions">
+        <PropertyRef Name="SubjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__STG__GroupID__48CFD27E">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+    <End Role="STG" Type="Self.STG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="STG">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__STG__SubjectID__49C3F6B7">
+    <End Role="Subjects" Type="Self.Subjects" Multiplicity="0..1" />
+    <End Role="STG" Type="Self.STG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="STG">
+        <PropertyRef Name="SubjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__STG__TeacherID__4AB81AF0">
+    <End Role="Teachers" Type="Self.Teachers" Multiplicity="0..1" />
+    <End Role="STG" Type="Self.STG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teachers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="STG">
+        <PropertyRef Name="TeacherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Students__GroupI__45F365D3">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+    <End Role="Students" Type="Self.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UniversityModelStoreContainer">
+    <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BeforeExamGrades" EntityType="Self.BeforeExamGrades" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Exams" EntityType="Self.Exams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="STG" EntityType="Self.STG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subjects" EntityType="Self.Subjects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__BeforeExa__Stude__52593CB8" Association="Self.FK__BeforeExa__Stude__52593CB8">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="BeforeExamGrades" EntitySet="BeforeExamGrades" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BeforeExa__Subje__5165187F" Association="Self.FK__BeforeExa__Subje__5165187F">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="BeforeExamGrades" EntitySet="BeforeExamGrades" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Exams__SubjectID__4D94879B" Association="Self.FK__Exams__SubjectID__4D94879B">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Exams" EntitySet="Exams" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Exams__SudentID__4E88ABD4" Association="Self.FK__Exams__SudentID__4E88ABD4">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Exams" EntitySet="Exams" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Questions__Subje__5535A963" Association="Self.FK__Questions__Subje__5535A963">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Questions" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__STG__GroupID__48CFD27E" Association="Self.FK__STG__GroupID__48CFD27E">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="STG" EntitySet="STG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__STG__SubjectID__49C3F6B7" Association="Self.FK__STG__SubjectID__49C3F6B7">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="STG" EntitySet="STG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__STG__TeacherID__4AB81AF0" Association="Self.FK__STG__TeacherID__4AB81AF0">
+      <End Role="Teachers" EntitySet="Teachers" />
+      <End Role="STG" EntitySet="STG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Students__GroupI__45F365D3" Association="Self.FK__Students__GroupI__45F365D3">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
